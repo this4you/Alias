@@ -1,0 +1,90 @@
+.App {
+  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  color: red;
+}
+
+.start-button {
+  display: inline-block;
+  color: #282c34;
+  text-align: center;
+  width: 70%;
+  padding: 20px;
+  border: 0px solid black;
+  border-radius: 20px;
+  font-size: 1.1em;
+  background-color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.setting {
+  width: 50%;
+}
+.teams {
+  list-style-type: none;
+  padding: 20px;
+}
+
+.teams li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.team-input {
+  font-size: 20px;
+}
+
+.team-add-button {
+  font-size: 20px;
+}
+
+.start-button:hover, .menu-button:hover {
+  background-color: rgba(255, 27, 27, 0.918);
+  color: white;
+}
+.menu-button {
+  display: inline-block;
+  color: #282c34;
+  text-align: center;
+  width: 100%;
+  padding: 5%;
+  margin: 7px;
+  border: 0px solid black;
+  border-radius: 20px;
+  font-size: 0.9em;
+  background-color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 3s linear;
+  }
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
