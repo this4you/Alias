@@ -1,8 +1,36 @@
 import React, { Component } from 'react';
+import { FaPlus } from 'react-icons/fa';
+import randomColor from  'randomcolor';
+import ls from 'local-storage';
+function RenderTeams({ teams, removeTeam}) {
+    if (teams && teams.length === 0)
+        return (
+            <p>
+                Create first team ...
+            </p>
+        )
+    else
+        return (
+            <ul className='teams' >
+                {
+                    teams.map((item, index) => {
+                        return (
+                            <li key={index} onClick={() => removeTeam(index)} style={{color:item.color}}>
+                                {item.name}
+                            </li>
+                        )
+                    })
+                }
+            </ul >
+        )
+}
 
 class GameConfig extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        if (ls.get("gameIsStart")) {
+            this.props.history.push('/gameplatform');
+        }
         this.state = {
             teams: []
         };
@@ -14,16 +42,21 @@ class GameConfig extends Component {
 
     removeTeam(index) {
         var newArr = [...this.state.teams];
-        newArr.splice(index,1);
+        newArr.splice(index, 1);
         this.setState({
             teams: newArr
         })
     }
 
     addTeam() {
-        var newTeamName = this.teamName.current.value;
+        const newTeamName = this.teamName.current.value;
         if (newTeamName) {
-            var newTeams = this.state.teams.concat(newTeamName);
+            const newTeam = {
+                name: newTeamName,
+                color: randomColor(),
+                score: 0
+            };
+            const newTeams = this.state.teams.concat(newTeam);
             this.setState({
                 teams: newTeams
             });
@@ -33,7 +66,14 @@ class GameConfig extends Component {
 
     startGame(event) {
         event.preventDefault();
-        alert("Start");
+        console.log(this.props);
+        const teams = this.state.teams;
+        if (teams.length > 1) {
+            ls.set('teams', teams);
+            ls.set('gameIsStart', true);
+            this.props.history.push('/gameplatform');
+        } else 
+            alert("Add more 1 team for to start game!");
     }
 
 
@@ -42,23 +82,19 @@ class GameConfig extends Component {
         return (
             <div className='setting'>
                 <div>
-                    <ul className='teams'>
-                        {teams.map((item, index) => {
-                            return (
-                                <li key={index} onClick ={()=> this.removeTeam(index)}>
-                                    {item}
-                                </li>
-                            )
-                        })}
-                    </ul>
+                    <RenderTeams teams={teams} removeTeam={this.removeTeam} />
                 </div>
                 <form onSubmit={this.startGame}>
                     <div>
-                        <input type='text' ref={this.teamName} className='team-input'></input>
-                        <button type='button' id='addbutton' className='team-add-button' onClick={this.addTeam}>Add team</button>
+                        <div>
+                            <input type='text' ref={this.teamName} className='team-input'></input>
+                        </div>
+                        <div>
+                            <FaPlus className='team-add-button' onClick={this.addTeam} />
+                        </div>
                     </div>
                     <div>
-                        <button>Go</button>
+                        <button className='start-game-button'>Go</button>
                     </div>
                 </form>
             </div>

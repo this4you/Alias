@@ -31,27 +31,115 @@
 }
 
 .setting {
-  width: 50%;
+  width: 70%;
 }
+
+.round-controls {
+  margin-top: 1em;
+  font-size: 3em;
+}
+
+.timer {
+  text-align:center;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+.timer span {
+  display: inline-block;
+  margin: 1em;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.pause {
+  border: 0.1em solid;
+  padding: 1em;
+  border-radius: 2em;
+}
+
+.round-controls span{
+  margin: 1.4em;
+}
+
+.round-controls span:first-child {
+  color: rgba(85, 221, 142, 0.911);
+}
+
+.round-controls span:last-child {
+  color: rgba(221, 85, 85, 0.911);
+}
+
+.word {
+  font-size: 2em;
+}
+
 .teams {
   list-style-type: none;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .teams li {
   padding: 10px;
   cursor: pointer;
+  width: 50%;
 }
 
 .team-input {
   font-size: 20px;
+  display: inline-block;
+  min-width: 200px;
+  width: 40%;
 }
 
 .team-add-button {
-  font-size: 20px;
+  font-size: 50px;
+  margin-top: 0.4em;
+  color: rgba(68, 143, 133, 0.904);
 }
 
-.start-button:hover, .menu-button:hover {
+.team-add-button:hover {
+  color: rgba(7, 178, 190, 0.9);
+}
+
+
+.team-active {
+  font-size: 1.5em;
+  border-bottom: 10px solid;
+  padding: 0.3em;
+}
+
+.team-score {
+  display: inline-block;
+  border: 10px solid;
+  padding: 0.5em;
+  border-radius: 55%;
+  font-size: 1.2em;
+  margin-left: 0.5em;
+}
+
+.team-platform {
+  margin: 1em;
+}
+
+.start-game-button {
+  display: inline-block;
+  font-size: 30px;
+  padding: 10px 30px;
+  margin-top: 50px;
+  border-radius: 40px;
+  cursor: pointer;
+  border: 0px solid;
+  background-color: white;
+}
+
+.start-button:hover, .menu-button:hover, .start-game-button:hover {
   background-color: rgba(255, 27, 27, 0.918);
   color: white;
 }
