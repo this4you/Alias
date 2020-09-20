@@ -34,10 +34,7 @@
   width: 70%;
 }
 
-.round-controls {
-  margin-top: 1em;
-  font-size: 3em;
-}
+
 
 .timer {
   text-align:center;
@@ -60,8 +57,22 @@
   border-radius: 2em;
 }
 
+.round-controls {
+  margin-top: 1em;
+  font-size: 3em;
+}
+
 .round-controls span{
-  margin: 1.4em;
+  margin: 1.2em;
+}
+
+.start-round-button {
+  font-size: 3em;
+  display: inline-block;
+  padding: 1em;
+  border: solid 0.1em;
+  border-radius: 1.8em;
+  cursor: pointer;
 }
 
 .round-controls span:first-child {
@@ -139,7 +150,7 @@
   background-color: white;
 }
 
-.start-button:hover, .menu-button:hover, .start-game-button:hover {
+.start-button:hover, .menu-button:hover, .start-game-button:hover, .start-round-button:hover {
   background-color: rgba(255, 27, 27, 0.918);
   color: white;
 }

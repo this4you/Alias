@@ -16,9 +16,10 @@ class GamePlatform extends Component {
     startRound() {
         ls.set("CurrentRound", {
             team: this.state.activeTeam,
-            time: 60,
+            time: 7,
             score: 0
         });
+        this.props.history.push('/gameround');
     }
 
     componentDidMount() {
